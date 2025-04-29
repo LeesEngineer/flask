@@ -22,3 +22,10 @@ def login():
     elif request.method == 'GET':
         return render_template('index7.html')
 
+@qpp.route('/logout')
+def logout():
+    session.pop('username', None)
+    return redirect(url_for('index'))
+
+if __name__ == '__main__':
+    app.run(debug = True, threaded = True)
